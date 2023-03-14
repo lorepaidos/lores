@@ -49,21 +49,20 @@ class Entregable{
     }
 
     entregar(){
-        this.entregado=true
+        this_entregado=true;
         
     }
 
     devolver(){
-        this.devolver= false
+        this_devolver= false;
     }
 
     esentregado(){
-        return this.esentregado
+        return this.entregado;
     }
 
 }
-const estado = new Entregable ('lore','esentregado','drama')
-console.log(estado._entregado);
+
 
 
 //Apartado B
@@ -75,3 +74,92 @@ console.log(estado._entregado);
 //Sus atributos son horas estimadas y compañia.
 //Crear el constructor, getters, setters y toString
 
+class Serie extends Entregable{
+    #numeroDeTemporadas;
+    #creador;
+
+    constructor(titulo,entregado,genero,numeroDeTemporadas,creador){
+        super(titulo,entregado,genero);
+        
+        this.#numeroDeTemporadas = numeroDeTemporadas;
+        this.#creador            = creador;
+    }
+
+    get numeroDeTemporadas(){
+        return this.#numeroDeTemporadas;
+    }
+
+    get creador(){
+        return this.#creador;
+    }
+
+    set numeroDeTemporadas(nuevoNumeroDeTemporadas){
+        this.#numeroDeTemporadas = nuevoNumeroDeTemporadas;
+    }
+
+    set creador(nuevoCreador){
+        this.#creador = nuevoCreador;
+    }
+
+    toString(){
+        const texto = super.toString();
+        return `${texto}\nNumero de temporadas: ${this.#numeroDeTemporadas}\nCreador: ${this.#creador}`
+    }
+}
+
+class Videojuego extends Entregable{
+    #horasEstimadas;
+    #companhia;
+
+    constructor(titulo,entregado,genero,horasEstimadas,companhia){
+        super(titulo,entregado,genero);
+        
+        this.#horasEstimadas = horasEstimadas;
+        this.#companhia      = companhia;
+    }
+
+    get horasEstimadas(){
+        return this.#horasEstimadas;
+    }
+
+    get companhia(){
+        return this.#companhia;
+    }
+
+    set horasEstimadas(nuevaHorasEstimadas){
+        this.#horasEstimadas = nuevaHorasEstimadas;
+    }
+
+    set companhia(nuevaCompanhia){
+        this.#companhia = nuevaCompanhia;
+    }
+
+    toString(){
+        const texto = super.toString();
+        return `${texto}\nHoras estimadas: ${this.#horasEstimadas}\nCompanhia: ${this.#companhia}`
+    }
+}
+
+const serie = new Serie("friends",false,"Comedia",10,"Anonimo");
+
+console.log(serie.toString());
+
+serie.entregar();
+
+console.log(serie.toString());
+
+serie.devolver();
+
+console.log(serie.toString());
+
+const videojuego = new Videojuego("COD",false,"Batalla",100,"Activision");
+
+console.log(videojuego.toString());
+
+videojuego.entregar();
+
+console.log(videojuego.toString());
+
+videojuego.devolver();
+
+console.log(videojuego.toString());
