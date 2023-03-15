@@ -37,20 +37,20 @@
 
 
 class Electrodomestico{
-    _precioBase;
+    _resolucion;
     _color;
     _consumoEnergetico;
     _peso
 
     constructor(precioBase,color,consumoEnergetico,peso){
-        this._precioBase       = precioBase;
+        this._resolucion       = precioBase;
         this._color            = color;
         this._consumoEnergetico= consumoEnergetico;
         this._peso             = peso;
     }
 
-    get precioBase(){
-        return this._precioBase;
+    get carga(){
+        return this._resolucion;
     }
 
     get color(){
@@ -65,8 +65,8 @@ class Electrodomestico{
         return this._peso;
     }
 
-    set precioBase(nuevoprecioBase){
-        this._precioBase = nuevoprecioBase;
+    set carga(nuevoprecioBase){
+        this._resolucion = nuevoprecioBase;
     }
 
     set color(nuevoColor){
@@ -82,31 +82,45 @@ class Electrodomestico{
     }
 
     toString(){
-        return `Precio Base: ${this._precioBase}\nColor: ${this._color}\nConsumo Energetico: 
+        return `Precio Base: ${this._resolucion}\nColor: ${this._color}\nConsumo Energetico: 
         ${this._consumoEnergetico} Peso:${this._peso}`
     }
 
     precioFinal(){
+        let precioConsumo;
         if (this.consumoEnergetico == A) {
-            return 100;
+            precioConsumo=100;
             }
         if (this.consumoEnergetico == B){
-            return 80;
+            precioConsumo= 80;
         }
         if (this.consumoEnergetico == C){
-            return 60;
+            precioConsumo= 60;
         }
         if (this.consumoEnergetico == D){
-            return 50 ;
+            precioConsumo= 50 ;
         }
         if (this.consumoEnergetico == E){
-            return 30;
+            precioConsumo= 30;
         }
         if (this.consumoEnergetico == F){
-            return 10 ;
+            precioConsumo= 10 ;
         }
 
-        if (this.peso )
+        let precioPeso;
+        if (this.peso <= 19){
+            precioPeso= 10
+        }
+        if (this.peso >= 20 & 49){
+            precioPeso=50
+        }
+        if (this.peso >= 50 & 79){
+            precioPeso=80
+        } 
+
+        if (this.peso >= 80){
+            precioPeso=100
+        }
     }
 
 }
