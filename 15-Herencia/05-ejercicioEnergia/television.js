@@ -9,36 +9,48 @@
 
 
 class Television extends Electrodomestico{
-    _resolucion;
-    _sintonizador
-    
+    #resolucion;
+    #tdt;
 
-    constructor(precioBase,color,consumoEnergetico,peso,resolucion,_sintonizador){
-        this._resolucion  = resolucion;
-        this._sintonizador= sintonizador
-       
+    constructor(precioBase,color,consumoEnergetico,peso,resolucion,tdt){
+        super(precioBase,color,consumoEnergetico,peso);
+
+        this.#resolucion = resolucion;
+        this.#tdt        = tdt;
     }
 
     get resolucion(){
-        return this._resolucion;
+        return this.#resolucion;
     }
 
-
-    get sintonizador(){
-        return this._sintonizador;
+    get tdt(){
+        return this.#tdt;
     }
-
 
     set resolucion(nuevaResolucion){
-        this._resolucion = nuevaResolucion;
+        this.#resolucion = nuevaResolucion;
     }
 
-    set sintonizador(nuevaSintonizacion){
-        this._sintonizador = nuevaSintonizacion;
+    set tdt(nuevoTDT){
+        this.#tdt = nuevoTDT;
     }
 
-    
     toString(){
-        return `Resolucion: ${this._resolucion}/nSintonozador: ${this._sintonizador}`
+        const texto = super.toString();
+        return `${texto}\nResolucion: ${this.#resolucion}\nSintonizador TDT: ${this.#tdt}`;
+    }
+
+    precioFinal(){
+        let precio = super.precioFinal();
+
+        if (this.#tdt){
+            precio = precio + 50;
+        }
+
+        if (this.#resolucion > 40){
+            precio = precio + (this._precioBase * 0.3);
+        }
+
+        return precio;
     }
 }

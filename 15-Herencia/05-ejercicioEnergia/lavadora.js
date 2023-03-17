@@ -11,29 +11,35 @@
 
 
 class Lavadora extends Electrodomestico{
-    _carga;
-    
+    #carga;
 
     constructor(precioBase,color,consumoEnergetico,peso,carga){
-        this._carga  = carga;
-       
+        super(precioBase,color,consumoEnergetico,peso);
+        
+        this.#carga = carga;
     }
 
     get carga(){
-        return this._carga;
+        return this.#carga;
     }
-
 
     set carga(nuevaCarga){
-        this._carga = nuevaCarga;
+        this.#carga = nuevaCarga;
     }
 
-    
     toString(){
-        return `Carga: ${this._carga}`
+        const texto = super.toString();
+        // return `${super.toString()}\nCarga: ${this.#carga}`;
+        return `${texto}\nCarga: ${this.#carga}`;
     }
 
     precioFinal(){
+        let precio = super.precioFinal();
 
+        if (this.#carga > 30){
+            precio = precio + 50;
+        }
+
+        return precio;
     }
 }

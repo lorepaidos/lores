@@ -37,20 +37,20 @@
 
 
 class Electrodomestico{
-    _resolucion;
+    _precioBase;
     _color;
     _consumoEnergetico;
-    _peso
+    _peso;
 
     constructor(precioBase,color,consumoEnergetico,peso){
-        this._resolucion       = precioBase;
-        this._color            = color;
-        this._consumoEnergetico= consumoEnergetico;
-        this._peso             = peso;
+        this._precioBase        = precioBase;
+        this._color             = color;
+        this._consumoEnergetico = consumoEnergetico;
+        this._peso              = peso;
     }
 
-    get carga(){
-        return this._resolucion;
+    get precioBase(){
+        return this._precioBase;
     }
 
     get color(){
@@ -65,16 +65,16 @@ class Electrodomestico{
         return this._peso;
     }
 
-    set carga(nuevoprecioBase){
-        this._resolucion = nuevoprecioBase;
+    set precioBase(nuevoPrecioBase){
+        this._precioBase = nuevoPrecioBase;
     }
 
     set color(nuevoColor){
         this._color = nuevoColor;
     }
 
-    set consumoEnergetico(nuevoConsumoenergetico){
-        this._consumoEnergetico = nuevoConsumoenergetico;
+    set consumoEnergetico(nuevoConsumoEnergetico){
+        this._precioBase = nuevoConsumoEnergetico;
     }
 
     set peso(nuevoPeso){
@@ -82,45 +82,45 @@ class Electrodomestico{
     }
 
     toString(){
-        return `Precio Base: ${this._resolucion}\nColor: ${this._color}\nConsumo Energetico: 
-        ${this._consumoEnergetico} Peso:${this._peso}`
+        return `Precio base: ${this._precioBase}\nColor: ${this._color}\nConsumo Energetico: ${this._consumoEnergetico}\nPeso: ${this.peso}`;
     }
 
     precioFinal(){
-        let precioConsumo;
-        if (this.consumoEnergetico == A) {
-            precioConsumo=100;
-            }
-        if (this.consumoEnergetico == B){
-            precioConsumo= 80;
+        let precioConsumo = 0;
+        if (this._consumoEnergetico === "A"){
+            precioConsumo = 100;
         }
-        if (this.consumoEnergetico == C){
-            precioConsumo= 60;
+        else if (this._consumoEnergetico === "B"){
+            precioConsumo = 80;
         }
-        if (this.consumoEnergetico == D){
-            precioConsumo= 50 ;
+        else if (this._consumoEnergetico === "C"){
+            precioConsumo = 60;
         }
-        if (this.consumoEnergetico == E){
-            precioConsumo= 30;
+        else if (this._consumoEnergetico === "D"){
+            precioConsumo = 50;
         }
-        if (this.consumoEnergetico == F){
-            precioConsumo= 10 ;
+        else if (this._consumoEnergetico === "E"){
+            precioConsumo = 30;
+        }
+        else if (this._consumoEnergetico === "F"){
+            precioConsumo = 10;
         }
 
-        let precioPeso;
-        if (this.peso <= 19){
-            precioPeso= 10
+        let precioPeso = 0;
+        if (this._peso <= 19){
+            precioPeso = 10;
         }
-        if (this.peso >= 20 & 49){
-            precioPeso=50
+        else if (this._peso <= 49){
+            precioPeso = 50;
         }
-        if (this.peso >= 50 & 79){
-            precioPeso=80
-        } 
+        else if (this._peso <= 79){
+            precioPeso = 80;
+        }
+        else{
+            precioPeso = 100;
+        }
 
-        if (this.peso >= 80){
-            precioPeso=100
-        }
+        return this._precioBase + precioConsumo + precioPeso;
+
     }
-
 }
