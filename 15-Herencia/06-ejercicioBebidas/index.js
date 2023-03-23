@@ -1,5 +1,9 @@
 const refresco = new BebidaAzucarada("1",1,0.50,"Fanta",0.15,true);
+const agua     = new AguaMineral("4",1,0.50,"Aguas de Mondariz","Mondariz");
 
-console.log(refresco.toString());
+const almacen = new Almacen();
 
-console.log(refresco.precio);
+almacen.agregarProducto(refresco);
+almacen.agregarProducto(agua);
+
+almacen.eliminarProducto("1");
