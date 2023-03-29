@@ -1,0 +1,38 @@
+/* Comentario CSS */
+.fila-formulario{
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    /* border: 2px solid black;
+    padding: 30px; */
+}
+
+.etiqueta-campo{
+    margin-right: 5px;
+}
+
+input{
+    color: red;
+    background-color: orange;
+    border: 5px solid blue;
+    width:200px;
+}
+
+img{
+    width:500px;
+    height: 300px;
+}
+
+input:focus{
+    background-color: blue;
+}
+
+input:hover{
+    background-color: red;
+}
+
+
+/* .formulario{
+    background-image: url('https://cdn.logo.com/hotlink-ok/logo-social.png');
+} */

@@ -6,4 +6,13 @@ const almacen = new Almacen();
 almacen.agregarProducto(refresco);
 almacen.agregarProducto(agua);
 
-almacen.eliminarProducto("1");
+// almacen.eliminarProducto("1");
+
+console.log("Mostrar informacion");
+almacen.mostrarInformacion();
+
+console.log("Precio total:");
+console.log(almacen.calcularPrecioTotal());
+
+console.log("Precio total por marca:");
+console.log(almacen.calcularPrecioTotalPorMarca("Fanta"));
