@@ -1,0 +1,104 @@
+// Obtengo una referencia a un elemento HTML mediante el identificador
+const botonAgregarAgua = document.getElementById("btnAgregarAgua");
+
+// AddEventListener escucha cuando se produce un evento
+// y recibe dos argumentos:
+// El primero es el evento que quiero escuchar
+// El segundo es la funcion con lo que quiero que haga
+// al producirse el evento asociado
+botonAgregarAgua.addEventListener("click",function() {
+    const divAgregarAgua = document.createElement("div");
+    divAgregarAgua.classList.add('formulario');
+    document.body.appendChild(divAgregarAgua);
+    
+    
+    const divIdentificador = document.createElement("div");
+    divIdentificador.classList.add("fila-formulario");
+    divAgregarAgua.appendChild(divIdentificador);
+    
+    const labelIdentificador     = document.createElement("label");
+    labelIdentificador.innerHTML = "<b>Identificador</b>";
+    labelIdentificador.classList.add("etiqueta-campo");
+    divIdentificador.appendChild(labelIdentificador);
+
+
+    const inputIdentificador = document.createElement("input");
+    inputIdentificador.id = "identificador";
+    divIdentificador.appendChild(inputIdentificador);
+    //
+    const divLitros = document.createElement("div");
+    divLitros.classList.add("fila-formulario");
+    divAgregarAgua.appendChild(divLitros);
+
+    const labelLitros = document.createElement("label");
+    labelLitros.innerHTML = "<b>Litros</b>";
+    labelLitros.classList.add("etiqueta-campo");
+    divLitros.appendChild(labelLitros);
+
+    const inputLitros = document.createElement("input");
+    inputLitros.id = "Litros";
+    divLitros.appendChild(inputLitros);
+    //
+    const divPrecio = document.createElement("div");
+    divPrecio.classList.add("fila-formulario");
+    divAgregarAgua.appendChild(divPrecio);
+
+    const labelPrecio = document.createElement("label");
+    labelPrecio.innerHTML = "<b>Precio</b>";
+    labelPrecio.classList.add("etiqueta-campo");
+    divPrecio.appendChild(labelPrecio);
+
+    const inputPrecio = document.createElement("input");
+    inputPrecio.id = "Precio";
+    divPrecio.appendChild(inputPrecio);
+    //
+    const divMarca = document.createElement("div");
+    divMarca.classList.add("fila-formulario");
+    divAgregarAgua.appendChild(divMarca);
+
+    const labelMarca = document.createElement("label");
+    labelMarca.innerHTML = "<b>Marca</b>";
+    labelMarca.classList.add("etiqueta-campo");
+    divMarca.appendChild(labelMarca);
+
+    const inputMarca = document.createElement("input");
+    inputPrecio.id = "Marca";
+    divMarca.appendChild(inputMarca);
+    //
+    const divOrigen = document.createElement("div");
+    divOrigen.classList.add("fila-formulario");
+    divAgregarAgua.appendChild(divOrigen);
+
+    const labelOrigen = document.createElement("label");
+    labelOrigen.innerHTML = "<b>Origen</b>";
+    labelOrigen.classList.add("etiqueta-campo");
+    divOrigen.appendChild(labelOrigen);
+
+    const inputOrigen = document.createElement("input");
+    inputPrecio.id = "Origen";
+    divOrigen.appendChild(inputOrigen);
+
+    document.body.removeChild(botonAgregarAgua);
+
+    const botonGuardarDatosAgua = document.createElement("button");
+    botonGuardarDatosAgua.innerHTML = "Guardar Datos";
+    divAgregarAgua.appendChild(botonGuardarDatosAgua);
+
+    // Eventos de recoger datos del agua
+    // y añadir el agua al almacen
+    botonGuardarDatosAgua.addEventListener("click",function(){
+        const identificadorAgua = document.getElementById("identificador").value;
+        const LitrosAgua= document.getElementById("Litros").value;
+        const PrecioAgua= document.getElementById ("Precio"). value;
+        const MarcaAgua= document.getElementById ("Marca").value;
+        const OrigenAgua= document.getElementById ("Origen").value;
+
+        const agua = new AguaMineral(identificadorAgua,LitrosAgua,PrecioAgua,MarcaAgua,OrigenAgua);
+
+        const almacen = new Almacen();
+        almacen.agregarProducto(agua);
+
+         });
+
+        
+});
