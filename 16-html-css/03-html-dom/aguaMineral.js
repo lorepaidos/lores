@@ -1,42 +1,21 @@
-class BebidaAzucarada extends Bebida{
-    #porcentajeAzucar;
-    #promocion;
+class AguaMineral extends Bebida{
+    #origen;
 
-    constructor(identificador,litros,precio,marca,porcentajeAzucar,promocion){
+    constructor(identificador,litros,precio,marca,origen){
         super(identificador,litros,precio,marca);
 
-        this.#porcentajeAzucar = porcentajeAzucar;
-        this.#promocion = promocion;
+        this.#origen = origen;
     }
 
-    get porcentajeAzucar(){
-        return this.#porcentajeAzucar;
+    get origen(){
+        return this.#origen;
     }
-
-    get promocion(){
-        return this.#promocion;
-    }
-    
-    get precio(){
-        if (this.#promocion){
-            // return this._precio - (this._precio * 0.1)
-            return this._precio * 0.9;
-        }
-        else{
-            return this._precio;
-        }
-    }
-
-    set porcentajeAzucar(nuevoPorcentajeAzucar){
-        this.#porcentajeAzucar = nuevoPorcentajeAzucar;
-    }
-
-    set promocion(nuevaPromocion){
-        this.#promocion = nuevaPromocion;
+    set origen(nuevoOrigen){
+        this.#origen = nuevoOrigen;
     }
 
     toString(){
         const texto = super.toString();
-        return `${texto}\nPorcentaje Azucar: ${this.#porcentajeAzucar}\nPromocion: ${this.#promocion}`;
+        return `${texto}\nOrigen: ${this.#origen}`;
     }
 }

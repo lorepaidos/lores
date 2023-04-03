@@ -94,5 +94,8 @@ class Almacen{
         return precioTotal;
     }
     
-
+    get bebidas(){
+        return this.#bebidas;
+    }    
 }
+

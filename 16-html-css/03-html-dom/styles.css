@@ -9,6 +9,18 @@
     padding: 30px; */
 }
 
+    table {
+        border-collapse: separate;
+        border-spacing: 2px;
+        background: #000 url("gradient.gif") bottom left repeat-x;
+        color: blueviolet;
+     }
+     td, th {
+        background:palevioletred;
+        color: #000;
+     
+}
+
 .etiqueta-campo{
     margin-right: 5px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
