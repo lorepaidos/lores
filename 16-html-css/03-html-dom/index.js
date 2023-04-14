@@ -80,22 +80,39 @@ function generarTabla(almacen) {
             columnaPorcentajeAzucar.innerHTML = "X";
             columnaPromocion.innerHTML = "X";
         }
+
+        const columnaEliminar = document.createElement("td");
+
+        const botonEliminar = document.createElement("button");
+        botonEliminar.innerHTML = "Eliminar";
+        botonEliminar.addEventListener("click",function(){
+            almacen.eliminarProducto(bebida.identificador);
+            generarTabla(almacen);
+        });
+
+        columnaEliminar.appendChild(botonEliminar);
         
 
         filaBebida.appendChild(columnaId);
         filaBebida.appendChild(columnaLitros);
         filaBebida.appendChild(columnaPrecio);
         filaBebida.appendChild(columnaMarca);
+
         filaBebida.appendChild(columnaOrigen);
         filaBebida.appendChild(columnaPorcentajeAzucar);
         filaBebida.appendChild(columnaPromocion);
 
-        tablaAlmacen.appendChild(filaBebida);
-    
-    }
-    document.body.appendChild(tablaAlmacen);
+        filaBebida.appendChild(columnaEliminar);
 
+        tablaAlmacen.appendChild(filaBebida);
+    }
+
+
+    
+    
+    document.body.appendChild(tablaAlmacen);
 }
+
 const almacen = new Almacen();
 
 // Obtengo una referencia a un elemento HTML mediante el identificador
@@ -331,4 +348,4 @@ botonAgregarRefresco.addEventListener("click",function() {
         generarTabla(almacen);
     });
 
-});
+}); 
