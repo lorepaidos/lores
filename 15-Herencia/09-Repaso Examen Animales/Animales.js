@@ -1,26 +1,26 @@
+// Definimos la Super clase (clase pabre)
 
 class Animales {
-    _color;
-    _reproduccion;
+
+// Definimos los atributos de Animales
+//Tenemos dos atributos publicos y dos protegidos
+     color;
+     reproduccion;
     _clima;
     _alimentacion;
 
+// Definicion de constructor 
+// Se llama cuando se inicializa un objeto de dicha clase
 
     constructor(color,reproduccion,clima,alimentacion){
-    this._color        = color;
-    this._reproduccion = reproduccion;
+    this.color         = color;
+    this.reproduccion  = reproduccion;
     this._clima        = clima;
     this._alimentacion = alimentacion;
 }
 
-get color(){
-    return this._color;
-}
 
-get reproduccion(){
-    return this._reproduccion;
-}
-
+// Definimos getters (obtenemos los datos de las variables)
 get clima(){
     return this._clima;
 }
@@ -28,14 +28,7 @@ get clima(){
 get alimentacion(){
     return this._alimentacion;
 }
-
-set color(nuevoColor){
-    this._color = nuevoColor;
-}
-
-set reproduccion(nuevaReproduccion){
-    this._reproduccion = nuevaReproduccion;
- }
+//Definimos setters (asignamos o cambiamos su valor.)
 
  set clima(nuevoClima){
     this._clima = nuevoClima;
@@ -45,8 +38,11 @@ set alimentacion(nuevaAlimentacion){
     this._alimentacion = nuevaAlimentacion;
 }
 
+//  toString
+// Devuelve la información de clase en forma de texto
+
 toString(){
-    return `Color: ${this._color}\nReproduccion: ${this._reproduccion}\nClima: ${this._clima} Alimentacion: ${this._alimentacion}`;
+    return `Color: ${this.color}\nReproduccion: ${this.reproduccion}\nClima: ${this._clima} Alimentacion: ${this._alimentacion}`;
 }
 
 }
